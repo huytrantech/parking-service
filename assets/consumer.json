@@ -1,0 +1,12 @@
+[
+  {
+    "QueueName": "Test",
+    "Active": true,
+    "Workers": 1
+  },
+  {
+    "QueueName": "sync_es_parking",
+    "Active": true,
+    "Workers": 1
+  }
+]
