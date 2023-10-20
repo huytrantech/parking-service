@@ -1,0 +1,1202 @@
+definitions:
+  account.LoginAccountRequest:
+    properties:
+      password:
+        type: string
+      phone:
+        type: string
+    type: object
+  account.LoginAccountResponse:
+    properties:
+      phone:
+        type: string
+      token:
+        type: string
+      username:
+        type: string
+    type: object
+  api_model.AddParkingSlotRequest:
+    properties:
+      price:
+        type: number
+      total_slot:
+        type: integer
+      type:
+        type: integer
+    type: object
+  api_model.BaseResponseAPIModel:
+    properties:
+      code:
+        type: integer
+      data: {}
+      message:
+        type: string
+    type: object
+  api_model.CreateParkingRequestDto:
+    properties:
+      address:
+        type: string
+      city_id:
+        type: integer
+      close_at_hour:
+        type: integer
+      close_at_minute:
+        type: integer
+      district_id:
+        type: integer
+      images:
+        items:
+          type: string
+        type: array
+      lat:
+        type: number
+      lng:
+        type: number
+      open_at_hour:
+        type: integer
+      open_at_minute:
+        type: integer
+      owner_name:
+        type: string
+      owner_phone:
+        type: string
+      parking_name:
+        type: string
+      parking_phone:
+        type: string
+      parking_types:
+        items:
+          $ref: '#/definitions/api_model.CreateParkingTypesRequestDto'
+        type: array
+      ward_id:
+        type: integer
+    type: object
+  api_model.CreateParkingTypesRequestDto:
+    properties:
+      parking_type:
+        type: integer
+      price:
+        type: number
+      total_slot:
+        type: integer
+    type: object
+  api_model.DetailParkingResponseDto:
+    properties:
+      address:
+        type: string
+      city_id:
+        type: integer
+      close_at_hour:
+        type: integer
+      close_at_minute:
+        type: integer
+      district_id:
+        type: integer
+      full_address:
+        type: string
+      location:
+        $ref: '#/definitions/api_model.PointLocationApiDto'
+      open_at_hour:
+        type: integer
+      open_at_minute:
+        type: integer
+      owner_name:
+        type: string
+      owner_phone:
+        type: string
+      parking_id:
+        type: string
+      parking_name:
+        type: string
+      parking_phone:
+        type: string
+      parking_types:
+        items:
+          $ref: '#/definitions/api_model.ParkingTypesResponseDto'
+        type: array
+      status:
+        type: integer
+      status_display:
+        type: string
+      ward_id:
+        type: integer
+    type: object
+  api_model.DetailPlaceResponseDto:
+    properties:
+      lat:
+        type: number
+      lng:
+        type: number
+    type: object
+  api_model.GenJWTTokenExternalRequestDto:
+    properties:
+      token:
+        type: string
+    type: object
+  api_model.GetCircleParkingLocationModelResponseDto:
+    properties:
+      address:
+        type: string
+      distance:
+        type: number
+      location:
+        $ref: '#/definitions/api_model.PointLocationApiDto'
+      name:
+        type: string
+      parking_id:
+        type: integer
+      parking_phone:
+        type: string
+      parking_types:
+        items:
+          $ref: '#/definitions/api_model.ParkingTypesResponseDto'
+        type: array
+      public_id:
+        type: string
+      status:
+        type: integer
+      status_display:
+        type: string
+    type: object
+  api_model.GetDirectionResponseDto:
+    properties:
+      points:
+        items:
+          $ref: '#/definitions/api_model.PointLocationApiDto'
+        type: array
+    type: object
+  api_model.GetPlaceHolderResponseDto:
+    properties:
+      place:
+        type: string
+      place_id:
+        type: string
+    type: object
+  api_model.ImportParkingResponseDto:
+    properties:
+      total_fail:
+        type: integer
+      total_success:
+        type: integer
+    type: object
+  api_model.ListCityResponseDto:
+    properties:
+      city_id:
+        type: integer
+      city_name:
+        type: string
+    type: object
+  api_model.ListDistrictResponseDto:
+    properties:
+      city_id:
+        type: integer
+      city_name:
+        type: string
+      district_id:
+        type: integer
+      district_name:
+        type: string
+    type: object
+  api_model.ListWardResponseDto:
+    properties:
+      city_id:
+        type: integer
+      city_name:
+        type: string
+      district_id:
+        type: integer
+      district_name:
+        type: string
+      ward_id:
+        type: integer
+      ward_name:
+        type: string
+    type: object
+  api_model.ParkingTypesResponseDto:
+    properties:
+      current_slot:
+        type: integer
+      id:
+        type: integer
+      logo:
+        type: string
+      price:
+        type: number
+      status:
+        type: integer
+      status_display:
+        type: string
+      total_slot:
+        type: integer
+      type:
+        type: integer
+      type_display:
+        type: string
+    type: object
+  api_model.PointLocationApiDto:
+    properties:
+      lat:
+        type: number
+      lng:
+        type: number
+    type: object
+  api_model.RecommendParkingLocationBaseResponseDto:
+    properties:
+      parking:
+        items:
+          $ref: '#/definitions/api_model.RecommendParkingLocationResponseDto'
+        type: array
+    type: object
+  api_model.RecommendParkingLocationResponseDto:
+    properties:
+      location:
+        $ref: '#/definitions/api_model.PointLocationApiDto'
+      parking_id:
+        type: string
+      parking_name:
+        type: string
+    type: object
+  api_model.RetrieveListParkingActionRolesDto:
+    properties:
+      can_approve:
+        type: boolean
+      can_block:
+        type: boolean
+      can_close:
+        type: boolean
+      can_denied:
+        type: boolean
+      can_remove:
+        type: boolean
+      can_reopen:
+        type: boolean
+    type: object
+  api_model.RetrieveListParkingResponseDto:
+    properties:
+      parking_name:
+        type: string
+      parking_phone:
+        type: string
+      public_id:
+        type: string
+      roles:
+        $ref: '#/definitions/api_model.RetrieveListParkingActionRolesDto'
+      status:
+        type: integer
+      status_display:
+        type: string
+    type: object
+  api_model.UpdateParkingRequestDto:
+    properties:
+      address:
+        type: string
+      city_id:
+        type: integer
+      close_at:
+        type: string
+      district_id:
+        type: integer
+      lat:
+        type: number
+      lng:
+        type: number
+      open_at:
+        type: string
+      owner_name:
+        type: string
+      owner_phone:
+        type: string
+      parking_name:
+        type: string
+      parking_phone:
+        type: string
+      ward_id:
+        type: integer
+    type: object
+  api_model.UpdateParkingSlotRequest:
+    properties:
+      parking_slot_id:
+        type: integer
+      price:
+        type: number
+      total_slot:
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /api/external/v1/{parking_id}:
+    get:
+      consumes:
+      - application/json
+      description: Show  the parking detail information
+      parameters:
+      - description: parking_id
+        in: path
+        name: parking_id
+        required: true
+        type: string
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  $ref: '#/definitions/api_model.DetailParkingResponseDto'
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Parking detail information
+      tags:
+      - external
+  /api/external/v1/circle-location:
+    get:
+      consumes:
+      - application/json
+      description: Show the top nearest parking in circle radius of specific location
+      parameters:
+      - description: lat
+        in: query
+        name: lat
+        type: number
+      - description: lng
+        in: query
+        name: lng
+        type: number
+      - description: distance
+        in: query
+        name: distance
+        type: integer
+      - description: text_search
+        in: query
+        name: text_search
+        type: string
+      - description: city
+        in: query
+        name: city
+        type: integer
+      - description: district
+        in: query
+        name: district
+        type: integer
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/api_model.GetCircleParkingLocationModelResponseDto'
+                  type: array
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Top nearest parking in circle radius
+      tags:
+      - external
+  /api/external/v1/directions:
+    get:
+      consumes:
+      - application/json
+      description: Show the direction from specific location to parking
+      parameters:
+      - description: origin
+        in: query
+        name: origin
+        type: string
+      - description: parking_id
+        in: query
+        name: parking_id
+        type: string
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  $ref: '#/definitions/api_model.GetDirectionResponseDto'
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Show the direction from specific location to parking
+      tags:
+      - external
+  /api/external/v1/placeholder:
+    get:
+      consumes:
+      - application/json
+      description: GetPlaceHolder
+      parameters:
+      - description: input
+        in: query
+        name: input
+        required: true
+        type: string
+      - description: limit
+        in: query
+        name: limit
+        type: integer
+      - description: radius
+        in: query
+        name: radius
+        type: integer
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/api_model.GetPlaceHolderResponseDto'
+                  type: array
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: GetPlaceHolder
+      tags:
+      - external
+  /api/external/v1/placeholder/{place_id}/detail:
+    get:
+      consumes:
+      - application/json
+      description: GetDetailPlaceHolder
+      parameters:
+      - description: place_id
+        in: path
+        name: place_id
+        required: true
+        type: string
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/api_model.DetailPlaceResponseDto'
+                  type: array
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: GetDetailPlaceHolder
+      tags:
+      - external
+  /api/external/v1/recommend:
+    get:
+      consumes:
+      - application/json
+      description: Show the recommend parking
+      parameters:
+      - description: page_index
+        in: query
+        name: page_index
+        type: integer
+      - description: page_limit
+        in: query
+        name: page_limit
+        type: integer
+      - description: city_id
+        in: query
+        name: city_id
+        type: integer
+      - description: lat
+        in: query
+        name: lat
+        type: integer
+      - description: lng
+        in: query
+        name: lng
+        type: integer
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/api_model.RecommendParkingLocationBaseResponseDto'
+                  type: array
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Show the recommend parking
+      tags:
+      - external
+  /api/internal/v1/:parking_id/parking-slot/:parking_slot_id/update:
+    post:
+      consumes:
+      - application/json
+      description: UpdateParkingSlotController
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: model
+        in: body
+        name: model
+        required: true
+        schema:
+          $ref: '#/definitions/api_model.UpdateParkingSlotRequest'
+      - description: parking_id
+        in: path
+        name: parking_id
+        required: true
+        type: integer
+      - description: parking_slot_id
+        in: path
+        name: parking_slot_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  type: boolean
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: UpdateParkingSlotController
+      tags:
+      - internal
+  /api/internal/v1/:parking_id/parking-slot/add:
+    post:
+      consumes:
+      - application/json
+      description: Add Parking Slot
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: model
+        in: body
+        name: model
+        required: true
+        schema:
+          $ref: '#/definitions/api_model.AddParkingSlotRequest'
+      - description: parking_id
+        in: path
+        name: parking_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  type: boolean
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Add Parking Slot
+      tags:
+      - internal
+  /api/internal/v1/:parking_id/sync-es:
+    put:
+      consumes:
+      - application/json
+      description: Sync Parking
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: parking_id
+        in: path
+        name: parking_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  type: boolean
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Sync Parking
+      tags:
+      - internal
+  /api/internal/v1/{parking_id}/approve:
+    put:
+      consumes:
+      - application/json
+      description: Approved Parking
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: parking_id
+        in: path
+        name: parking_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  type: boolean
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Approved Parking
+      tags:
+      - internal
+  /api/internal/v1/{parking_id}/close:
+    put:
+      consumes:
+      - application/json
+      description: Close Parking
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: parking_id
+        in: path
+        name: parking_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  type: boolean
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Close Parking
+      tags:
+      - internal
+  /api/internal/v1/{parking_id}/detail:
+    get:
+      consumes:
+      - application/json
+      description: Detail Parking
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: parking_id
+        in: path
+        name: parking_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  type: boolean
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Detail Parking
+      tags:
+      - internal
+  /api/internal/v1/{parking_id}/reopen:
+    put:
+      consumes:
+      - application/json
+      description: Reopen Parking
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: parking_id
+        in: path
+        name: parking_id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  type: boolean
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Reopen Parking
+      tags:
+      - internal
+  /api/internal/v1/{parking_id}/update:
+    put:
+      consumes:
+      - application/json
+      description: Update parking information
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: parking_id
+        in: path
+        name: parking_id
+        required: true
+        type: string
+      - description: model
+        in: body
+        name: model
+        schema:
+          $ref: '#/definitions/api_model.UpdateParkingRequestDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  type: boolean
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Update parking information
+      tags:
+      - internal
+  /api/internal/v1/add:
+    post:
+      consumes:
+      - application/json
+      description: Add Parking
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: model
+        in: body
+        name: model
+        required: true
+        schema:
+          $ref: '#/definitions/api_model.CreateParkingRequestDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  type: boolean
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Add Parking
+      tags:
+      - internal
+  /api/internal/v1/approve-multi/{parking_ids}:
+    put:
+      consumes:
+      - application/json
+      description: Approved Multi Parking
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: parking_ids
+        in: path
+        name: parking_ids
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  type: boolean
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Approved Multi Parking
+      tags:
+      - internal
+  /api/internal/v1/auth/login:
+    post:
+      consumes:
+      - application/json
+      description: Login internal
+      parameters:
+      - description: model
+        in: body
+        name: model
+        required: true
+        schema:
+          $ref: '#/definitions/account.LoginAccountRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  $ref: '#/definitions/account.LoginAccountResponse'
+              type: object
+      summary: Login internal
+      tags:
+      - auth
+  /api/internal/v1/generate-external-token:
+    post:
+      consumes:
+      - application/json
+      description: Get External JWT Token
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: model
+        in: body
+        name: model
+        required: true
+        schema:
+          $ref: '#/definitions/api_model.GenJWTTokenExternalRequestDto'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  type: string
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get External JWT Token
+      tags:
+      - auth
+  /api/internal/v1/import:
+    post:
+      consumes:
+      - application/json
+      description: Import Parking
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: file
+        in: formData
+        name: file
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  $ref: '#/definitions/api_model.ImportParkingResponseDto'
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Import Parking
+      tags:
+      - internal
+  /api/internal/v1/retrieve:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve paging list parking
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: page_index
+        in: query
+        name: page_index
+        type: integer
+      - description: page_limit
+        in: query
+        name: page_limit
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/api_model.RetrieveListParkingResponseDto'
+                  type: array
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Retrieve paging list parking
+      tags:
+      - internal
+  /api/internal/v1/sync-multi-es/{parking_ids}:
+    put:
+      consumes:
+      - application/json
+      description: Sync multi Parking
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: parking_ids
+        in: path
+        name: parking_ids
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  type: boolean
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Sync multi Parking
+      tags:
+      - internal
+  /api/public/v1/location/cities:
+    get:
+      consumes:
+      - application/json
+      description: Get All City
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/api_model.ListCityResponseDto'
+                  type: array
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get All City
+      tags:
+      - public
+  /api/public/v1/location/cities/{city_id}/districts:
+    get:
+      consumes:
+      - application/json
+      description: Get All District By CityId
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: city_id
+        in: path
+        name: city_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/api_model.ListDistrictResponseDto'
+                  type: array
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get All District By CityId
+      tags:
+      - public
+  /api/public/v1/location/cities/{city_id}/districts/{district_id}/wards:
+    get:
+      consumes:
+      - application/json
+      description: Get All Ward By CityId and DistrictId
+      parameters:
+      - description: Authorization
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: city_id
+        in: path
+        name: city_id
+        required: true
+        type: integer
+      - description: district_id
+        in: path
+        name: district_Id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/api_model.BaseResponseAPIModel'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/api_model.ListWardResponseDto'
+                  type: array
+              type: object
+      security:
+      - ApiKeyAuth: []
+      summary: Get All Ward By CityId and DistrictId
+      tags:
+      - public
+swagger: "2.0"
